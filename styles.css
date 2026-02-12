@@ -214,11 +214,13 @@ body {
 @media (max-width: 768px) {
   .music-container {
     position: fixed;
-    bottom: 80px;      /* aquí ajustas */
+    top: auto;              /* ← ESTO ES LA CLAVE */
+    bottom: 70px;           /* ajusta aquí */
     left: 50%;
     transform: translateX(-50%);
   }
 }
+
 
 
 
@@ -231,6 +233,7 @@ body {
     opacity: 0.9;
   }
 }
+
 
 
 
