@@ -223,38 +223,8 @@ body {
     width: 120px;      /* más pequeño */
     left: 50%;
     transform: translateX(-50%);
-    margin-top: 40px;
+    margin: 0
     opacity: 0.9;
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
