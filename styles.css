@@ -213,7 +213,7 @@ body {
 
 @media (max-width: 768px) {
   .music-container {
-    top: calc(50% + 340px);
+    top: calc(50% + 300px);
   }
 }
 
@@ -227,6 +227,7 @@ body {
     opacity: 0.9;
   }
 }
+
 
 
 
