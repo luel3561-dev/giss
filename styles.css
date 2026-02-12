@@ -59,10 +59,12 @@ body {
     transition: transform 1.4s ease, height 1s ease;
     box-shadow: 0 15px 40px rgba(0,0,0,.15);
     z-index: 2;
+    opacity: 0;
 }
 
 #envelope.open .letter {
     transform: translateX(-50%) translateY(-80px);
+    opacity: 1;
 }
 
 #envelope.expanded .letter {
@@ -233,8 +235,12 @@ body {
     transform: translateX(-50%);
     bottom: 20px;
     opacity: 0.9;
+    top: auto;
+    bottom: XXpX;
+    transform: translateX(-50);
   }
 }
+
 
 
 
