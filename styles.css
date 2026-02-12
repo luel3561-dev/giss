@@ -227,11 +227,13 @@ body {
     width: 120px;
     left: 50%;
     top: 50%;
-    transform: translate(-50%, -30%); 
+    transform: translate(-50%, -50%) translateY(40px);
     opacity: 0.9;
     z-index: 4;
   }
 }
+
+
 
 
 
