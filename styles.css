@@ -163,19 +163,19 @@ body {
 
 /* LIRIO */
 .lily {
-    position: fixed;
-    top: 50%;
-    left: calc(50% + 190px);
+    position: absolute;
+    bottom: -40px;
+    right: -220px;
     width: 280px;
     opacity: 0;
-    transform: translateY(-50%) scale(.9);
+    transform: scale(.9);
     transition: .8s ease;
     z-index: 4999;
 }
 
 #envelope.expanded .lily {
     opacity: 1;
-    transform: translateY(-50%) scale(1);
+    transform: scale(1);
 }
 
 /* 💖 CORAZONES */
@@ -227,12 +227,11 @@ body {
 }
 
 @media (max-width: 768px) {
-
   .lily {
     position: fixed;
     width: 120px;
     left: 50%;
-    bottom: 90px;          /* 👈 AQUÍ AJUSTAS */
+    bottom: 40px;      /* 👈 aquí SÍ responde */
     transform: translateX(-50%);
     opacity: 0;
     z-index: 4500;
@@ -242,16 +241,21 @@ body {
 
   #envelope.expanded .lily {
     opacity: 1;
-    bottom: 70px;          /* 👈 posición final */
+    bottom: 20px;     /* 👈 más abajo */
   }
 }
-
+@media (max-width: 768px) {
+  #envelope.expanded .letter {
+    top: 55%;
+  }
+}
 
 @media (max-width: 768px) {
   .letter {
     transition: transform 1.2s ease;
   }
 }
+
 
 
 
