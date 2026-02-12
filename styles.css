@@ -4,16 +4,21 @@
     padding: 0;
 }
 
+/* ===== ESCENA GENERAL ===== */
 body {
-    height: 100vh;
     background: #e91e63;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     font-family: 'Playfair Display', serif;
 }
 
-/* Nombre */
+/* contenedor que centra SOLO el sobre */
+.scene {
+    min-height: 100svh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ===== NOMBRE ===== */
 .envelope-name {
     position: absolute;
     bottom: 15px;
@@ -23,7 +28,7 @@ body {
     z-index: 5;
 }
 
-/* SOBRE */
+/* ===== SOBRE ===== */
 #envelope {
     position: relative;
     width: 300px;
@@ -39,7 +44,7 @@ body {
     overflow: hidden;
 }
 
-/* CARTA */
+/* ===== CARTA ===== */
 .letter {
     position: absolute;
     bottom: 0;
@@ -74,7 +79,7 @@ body {
     z-index: 5000;
 }
 
-/* MENSAJE CORTO */
+/* ===== MENSAJE CORTO ===== */
 .message {
     opacity: 0;
     visibility: hidden;
@@ -91,7 +96,7 @@ body {
     visibility: hidden;
 }
 
-/* TEXTO LARGO */
+/* ===== TEXTO LARGO ===== */
 .letter-text {
     position: absolute;
     inset: 0;
@@ -109,7 +114,7 @@ body {
     transition: opacity .6s ease .3s;
 }
 
-/* TAPA */
+/* ===== TAPA ===== */
 .flap {
     position: absolute;
     inset: 0;
@@ -124,7 +129,7 @@ body {
     transform: rotateX(180deg);
 }
 
-/* CUERPO */
+/* ===== CUERPO ===== */
 .envelope-body {
     position: absolute;
     inset: 0;
@@ -156,7 +161,7 @@ body {
     background: #faa5bb;
 }
 
-/* LIRIO */
+/* ===== LIRIO ===== */
 .lily {
     position: fixed;
     top: 50%;
@@ -173,7 +178,7 @@ body {
     transform: translateY(-50%) scale(1);
 }
 
-/* 💖 CORAZONES */
+/* ===== CORAZONES ===== */
 .heart {
     position: fixed;
     animation: floatUp 3s ease forwards;
@@ -188,12 +193,12 @@ body {
     }
 }
 
-/* 🎵 BOTÓN MÚSICA */
+/* ===== BOTÓN MÚSICA ===== */
 .music-container {
-    position: absolute;
-    top: calc(50% + 240px);
+    position: fixed;
     left: 50%;
     transform: translateX(-50%);
+    bottom: 20px;   /* AJUSTA AQUÍ SI QUIERES */
     z-index: 6000;
 }
 
@@ -202,14 +207,32 @@ body {
     border-radius: 20px;
     border: none;
     cursor: pointer;
-    background: #faa5bb;
-    color: #e91e63;
+    background: #7b1e3c;
+    color: #fff;
     transition: .3s;
 }
 
 #musicBtn:hover {
     background: #9b2c50;
 }
+
+/* ===== MÓVIL ===== */
+@media (max-width: 768px) {
+    .music-container {
+        bottom: 30px; /* más arriba o abajo según quieras */
+    }
+
+    .lily {
+        width: 120px;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 20px;
+        top: auto;
+        opacity: .9;
+    }
+}
+
+
 
 
 
