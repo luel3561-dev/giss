@@ -224,14 +224,16 @@ body {
 
 @media (max-width: 768px) {
   .lily {
-    width: 120px;      /* más pequeño */
+    width: 120px;
     left: 50%;
-    top:80%;
-    transform: translate(-50%, -50%);
+    top: 50%;
+    transform: translate(-50%, -30%); 
     opacity: 0.9;
     z-index: 4;
   }
 }
+
+
 
 
 
