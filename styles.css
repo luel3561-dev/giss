@@ -213,9 +213,13 @@ body {
 
 @media (max-width: 768px) {
   .music-container {
-    top: calc(50% + 180px);
+    position: fixed;
+    bottom: 30px;      /* aquí ajustas */
+    left: 50%;
+    transform: translateX(-50%);
   }
 }
+
 
 
 @media (max-width: 768px) {
@@ -227,6 +231,7 @@ body {
     opacity: 0.9;
   }
 }
+
 
 
 
