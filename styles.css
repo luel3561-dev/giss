@@ -223,15 +223,26 @@ body {
 
 
 @media (max-width: 768px) {
+
+  /* LIRIO SOLO EN CELULAR */
   .lily {
+    position: fixed;
     width: 120px;
     left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%) translateY(60px);
-    opacity: 0.9;
-    z-index: 4;
+    bottom: 30px;              /* 🌸 AQUÍ LO BAJAS */
+    transform: translateX(-50%) translateY(-10px);
+    opacity: 0;
+    z-index: 4000;
+    transition: opacity .8s ease, bottom .8s ease;
+  }
+
+  /* SOLO CUANDO LA CARTA ESTÁ ABIERTA */
+  #envelope.expanded .lily {
+    opacity: 1;
+    bottom: 60px;              /* 🌸 posición final */
   }
 }
+
 
 
 
