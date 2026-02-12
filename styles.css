@@ -212,10 +212,11 @@ body {
 }
 
 @media (max-width: 768px) {
-  .music-btn {
-    bottom: 20px;   /* antes seguramente estaba en 60px o más */
+  .music-container {
+    top: calc(50% + 330px);
   }
 }
+
 
 @media (max-width: 768px) {
   .lily {
@@ -226,6 +227,7 @@ body {
     opacity: 0.9;
   }
 }
+
 
 
 
