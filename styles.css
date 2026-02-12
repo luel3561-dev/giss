@@ -224,24 +224,27 @@ body {
 
 @media (max-width: 768px) {
 
-  /* LIRIO SOLO EN CELULAR */
   .lily {
     position: fixed;
     width: 120px;
     left: 50%;
-    bottom: 15px;              /* 🌸 AQUÍ LO BAJAS */
-    transform: translateX(-50%) translateY(-10px);
+
+    top: auto;            /* ❌ APAGA TOP */
+    transform: translateX(-50%);  /* ❌ QUITA translateY */
+
+    bottom: 15px;         /* 🌸 AQUÍ LO BAJAS O SUBES */
     opacity: 0;
     z-index: 4000;
     transition: opacity .8s ease, bottom .8s ease;
   }
 
-  /* SOLO CUANDO LA CARTA ESTÁ ABIERTA */
   #envelope.expanded .lily {
     opacity: 1;
-    bottom: 30px;              /* 🌸 posición final */
+    bottom: 35px;         /* 🌸 POSICIÓN FINAL */
   }
 }
+
+
 
 
 
