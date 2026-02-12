@@ -214,8 +214,8 @@ body {
 @media (max-width: 768px) {
   .music-container {
     position: fixed;
-    top: auto;              /* ← ESTO ES LA CLAVE */
-    bottom: 20px;           /* ajusta aquí */
+    top: auto;             
+    bottom: 20px;          
     left: 50%;
     transform: translateX(-50%);
   }
@@ -227,12 +227,13 @@ body {
     position: absolute;
     width: 120px;      /* más pequeño */
     left: 50%;
-    top:50%;
+    top:70%;
     transform: translate(-50%, -50%);
     opacity: 0.9;
     z-index: 4;
   }
 }
+
 
 
 
