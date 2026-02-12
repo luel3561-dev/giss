@@ -59,7 +59,6 @@ body {
     transition: transform 1.4s ease, height 1s ease;
     box-shadow: 0 15px 40px rgba(0,0,0,.15);
     z-index: 2;
-    opacity: 0;
 }
 
 #envelope.open .letter {
@@ -230,16 +229,27 @@ body {
 
 @media (max-width: 768px) {
   .lily {
-    width: 120px;      /* más pequeño */
+    position: fixed;
+    width: 120px;
+
     left: 50%;
-    transform: translateX(-50%);
-    bottom: 20px;
-    opacity: 0.9;
     top: auto;
-    bottom: XXpX;
-    transform: translateX(-50);
+    bottom: -150px;            /* ⛔ escondido */
+
+    transform: translateX(-50%);
+    opacity: 0;
+    z-index: 4000;
+
+    transition: bottom .6s ease, opacity .6s ease;
+  }
+
+  #envelope.expanded .lily {
+    bottom: 20px;              /* 🌸 AJUSTA AQUÍ */
+    opacity: 1;
   }
 }
+
+
 
 
 
