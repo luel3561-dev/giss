@@ -228,21 +228,20 @@ body {
     position: fixed;
     width: 120px;
     left: 50%;
-
-    top: auto;            /* ❌ APAGA TOP */
-    transform: translateX(-50%);  /* ❌ QUITA translateY */
-
-    bottom: 10px;         /* 🌸 AQUÍ LO BAJAS O SUBES */
+    bottom: 35px; /* déjalo base */
+    transform: translateX(-50%) translateY(0);
     opacity: 0;
     z-index: 4000;
-    transition: opacity .8s ease, bottom .8s ease;
+    transition: opacity .8s ease, transform .8s ease;
   }
 
   #envelope.expanded .lily {
     opacity: 1;
-    bottom: 35px;         /* 🌸 POSICIÓN FINAL */
+    transform: translateX(-50%) translateY(20px); /* 👈 AQUÍ LO BAJAS */
   }
 }
+
+
 
 
 
