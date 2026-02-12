@@ -38,7 +38,7 @@ body {
 .envelope-inner {
     position: absolute;
     inset: 0;
-    overflow: hidden;
+    overflow: visible;
 }
 
 .letter {
@@ -227,26 +227,27 @@ body {
 @media (max-width: 768px) {
 
   .lily {
-    position: absolute;          /* 🔥 CAMBIO CRÍTICO */
+    position: absolute;
     width: 120px;
     left: 50%;
-    bottom: -10px;               /* 👈 aquí SÍ baja */
-    transform: translateX(-50%) scale(.9);
+    bottom: -40px;          /* 👈 AJUSTA AQUÍ */
+    transform: translateX(-50%);
     opacity: 0;
-    z-index: 1;                  /* detrás de la carta */
-    transition: opacity .6s ease, bottom .6s ease, transform .6s ease;
+    z-index: 1;
+    transition: opacity .6s ease, bottom .6s ease;
   }
 
   #envelope.expanded .lily {
     opacity: 1;
-    bottom: -25px;               /* 👈 AJUSTA AQUÍ */
-    transform: translateX(-50%) scale(1);
+    bottom: -60px;          /* 👈 MÁS ABAJO */
   }
 }
+
 @media (max-width: 768px) {
   .letter {
     transition: transform 1.2s ease;
   }
 }
+
 
 
