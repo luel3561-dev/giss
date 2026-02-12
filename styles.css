@@ -239,9 +239,10 @@ body {
   /* SOLO CUANDO LA CARTA ESTÁ ABIERTA */
   #envelope.expanded .lily {
     opacity: 1;
-    bottom: 60px;              /* 🌸 posición final */
+    bottom: 30px;              /* 🌸 posición final */
   }
 }
+
 
 
 
