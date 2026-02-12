@@ -5,13 +5,14 @@
 }
 
 body {
-    height: 100vh;
+    min-height: 100svh; /* 👈 CLAVE para móvil */
     background: #e91e63;
     display: flex;
     justify-content: center;
     align-items: center;
     font-family: 'Playfair Display', serif;
 }
+
 
 /* Nombre */
 .envelope-name {
@@ -233,6 +234,7 @@ body {
     opacity: 0.9;
   }
 }
+
 
 
 
