@@ -224,7 +224,6 @@ body {
 
 @media (max-width: 768px) {
   .lily {
-    position: absolute;
     width: 120px;      /* más pequeño */
     left: 50%;
     top:70%;
@@ -233,6 +232,7 @@ body {
     z-index: 4;
   }
 }
+
 
 
 
