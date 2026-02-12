@@ -229,7 +229,7 @@ body {
     position: fixed;
     width: 120px;
     left: 50%;
-    bottom: 30px;              /* 🌸 AQUÍ LO BAJAS */
+    bottom: 15px;              /* 🌸 AQUÍ LO BAJAS */
     transform: translateX(-50%) translateY(-10px);
     opacity: 0;
     z-index: 4000;
@@ -242,6 +242,7 @@ body {
     bottom: 60px;              /* 🌸 posición final */
   }
 }
+
 
 
 
