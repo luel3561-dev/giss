@@ -36,7 +36,7 @@ body {
 .envelope-inner {
     position: absolute;
     inset: 0;
-    overflow: hidden;
+    overflow: visible;
 }
 
 /* CARTA */
@@ -221,25 +221,27 @@ body {
   }
 }
 
-
 @media (max-width: 768px) {
 
   .lily {
     position: fixed;
     width: 120px;
     left: 50%;
-    bottom: 35px; /* déjalo base */
-    transform: translateX(-50%) translateY(0);
+    bottom: 35px; /* posición base */
+    transform: translateX(-50%) translateY(40px); /* empieza más abajo */
     opacity: 0;
     z-index: 4000;
     transition: opacity .8s ease, transform .8s ease;
+    pointer-events: none;
   }
 
   #envelope.expanded .lily {
     opacity: 1;
-    transform: translateX(-50%) translateY(20px); /* 👈 AQUÍ LO BAJAS */
+    transform: translateX(-50%) translateY(0); /* 🌸 sube a su lugar */
   }
 }
+
+
 
 
 
