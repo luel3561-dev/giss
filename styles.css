@@ -226,12 +226,13 @@ body {
   .lily {
     width: 120px;      /* más pequeño */
     left: 50%;
-    top:70%;
+    top:80%;
     transform: translate(-50%, -50%);
     opacity: 0.9;
     z-index: 4;
   }
 }
+
 
 
 
