@@ -215,7 +215,7 @@ body {
   .music-container {
     position: fixed;
     top: auto;              /* ← ESTO ES LA CLAVE */
-    bottom: 70px;           /* ajusta aquí */
+    bottom: 60px;           /* ajusta aquí */
     left: 50%;
     transform: translateX(-50%);
   }
@@ -233,6 +233,7 @@ body {
     opacity: 0.9;
   }
 }
+
 
 
 
