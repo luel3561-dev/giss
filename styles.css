@@ -223,10 +223,11 @@ body {
     width: 120px;      /* más pequeño */
     left: 50%;
     transform: translateX(-50%);
-    margin-top: 60px;
+    margin-top: 40px;
     opacity: 0.9;
   }
 }
+
 
 
 
