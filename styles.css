@@ -192,6 +192,7 @@ body {
 .music-container {
     position: absolute;
     top: calc(50% + 240px);
+    bottom:40px;
     left: 50%;
     transform: translateX(-50%);
     z-index: 6000;
@@ -213,7 +214,7 @@ body {
 
 @media (max-width: 768px) {
   .music-container {
-    top: calc(50% + 370px);
+    bottom:60px;
   }
 }
 
@@ -229,6 +230,7 @@ body {
     z-index: 4;
   }
 }
+
 
 
 
