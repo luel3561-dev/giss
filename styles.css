@@ -58,6 +58,7 @@ body {
     transition: bottom 1.4s ease, transform 1.4s ease, height 1s ease;
     box-shadow: 0 15px 40px rgba(0,0,0,.15);
     z-index: 2;
+    opacity: 0;
 }
 
 
@@ -251,6 +252,7 @@ body {
     transition: transform 1.2s ease;
   }
 }
+
 
 
 
