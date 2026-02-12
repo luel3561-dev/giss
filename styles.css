@@ -210,3 +210,11 @@ body {
 #musicBtn:hover {
     background: #9b2c50;
 }
+
+@media (max-width: 768px) {
+  .music-btn {
+    bottom: 20px;   /* antes seguramente estaba en 60px o más */
+  }
+}
+
+
