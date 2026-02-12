@@ -220,13 +220,16 @@ body {
 
 @media (max-width: 768px) {
   .lily {
+    position: absolute;
     width: 120px;      /* más pequeño */
     left: 50%;
-    transform: translateX(-50%);
-    button: 20;
+    top:50%;
+    transform: translate(-50%, -50%);
     opacity: 0.9;
+    z-index: 4;
   }
 }
+
 
 
 
