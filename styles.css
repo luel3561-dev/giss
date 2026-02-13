@@ -229,15 +229,17 @@ body {
 
 
 
-@media (max-width: 768px) {
-  .lily {
-    width: 120px;      /* más pequeño */
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: 20px;
-    opacity: 0.9;
-    top: auto;
-    bottom: XXpX;
-    transform: translateX(-50);
+@media (max-width: 900px) {
+
+  .letter {
+    width: 230px;
+    height: 150px;
   }
+
+  #envelope.open .letter {
+    transform: translateX(-50%) translateY(-60px);
+  }
+
 }
+
+
