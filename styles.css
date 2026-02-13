@@ -36,7 +36,7 @@ body {
 .envelope-inner {
     position: absolute;
     inset: 0;
-    overflow: visible;
+    overflow: hidden; /* 👈 evita que la carta sobresalga */
 }
 
 /* CARTA */
@@ -46,7 +46,7 @@ body {
     left: 50%;
     width: 260px;
     height: 160px;
-    transform: translateX(-50%) translateY(40%);
+    transform: translateX(-50%) translateY(100%); /* 👈 completamente oculta */
     background: linear-gradient(to bottom, #fffdf9, #fffaf0);
     border-radius: 4px;
     padding: 40px 25px;
@@ -60,6 +60,7 @@ body {
     opacity: 0;
 }
 
+/* APERTURA DESKTOP */
 #envelope.open .letter {
     transform: translateX(-50%) translateY(-80px);
     opacity: 1;
@@ -76,7 +77,7 @@ body {
     z-index: 5000;
 }
 
-/* MENSAJE CORTO */
+/* MENSAJE */
 .message {
     opacity: 0;
     visibility: hidden;
@@ -119,6 +120,8 @@ body {
     clip-path: polygon(0 0, 50% 50%, 100% 0);
     transform-origin: top;
     transition: transform 1.8s ease-in-out;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
     z-index: 3;
 }
 
@@ -126,12 +129,11 @@ body {
     transform: rotateX(180deg);
 }
 
-/* Cierre más suave */
 #envelope:not(.open) .flap {
     transition: transform 2.2s ease-in-out;
 }
 
-/* CUERPO */
+/* CUERPO SOBRE */
 .envelope-body {
     position: absolute;
     inset: 0;
@@ -168,19 +170,18 @@ body {
     position: fixed;
     top: 50%;
     left: calc(50% + 190px);
-    width: 280px;
+    width: 280px; /* 👈 tamaño desktop */
+    transform: translateY(-50%);
     opacity: 0;
-    transform: translateY(-50%) scale(.9);
     transition: .8s ease;
     z-index: 4999;
 }
 
 #envelope.expanded .lily {
     opacity: 1;
-    transform: translateY(-50%) scale(1);
 }
 
-/* 💖 CORAZONES */
+/* CORAZONES */
 .heart {
     position: fixed;
     animation: floatUp 3s ease forwards;
@@ -195,7 +196,7 @@ body {
     }
 }
 
-/* 🎵 BOTÓN MÚSICA */
+/* BOTÓN MÚSICA */
 .music-container {
     position: absolute;
     top: calc(50% + 240px);
@@ -218,24 +219,29 @@ body {
     background: #9b2c50;
 }
 
-/* MÓVIL */
-@media (max-width: 768px) {
-  .music-container {
-    position: fixed;
-    top: auto;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-}
+/* ===================== */
+/*        MÓVIL          */
+/* ===================== */
 
 @media (max-width: 900px) {
 
+  /* Carta más pequeña */
+  .letter {
+    width: 230px;
+    height: 150px;
+  }
+
+  /* Apertura más natural */
+  #envelope.open .letter {
+    transform: translateX(-50%) translateY(-60px);
+  }
+
+  /* Lirio móvil */
   .lily {
     position: absolute;
     left: 50%;
-    bottom: -70px;
-    width: 80px;
+    bottom: -70px; /* 👈 mantiene misma posición visual */
+    width: 85px;   /* 👈 tamaño móvil */
     transform: translateX(-50%);
     opacity: 1;
     z-index: 5;
@@ -245,5 +251,15 @@ body {
     opacity: 0;
   }
 
-}
+  /* Animación más estable en móvil */
+  .flap {
+    transition: transform 1.4s ease-in-out;
+  }
 
+  .music-container {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
