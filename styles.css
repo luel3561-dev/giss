@@ -37,7 +37,7 @@ body {
 .envelope-inner {
     position: absolute;
     inset: 0;
-    overflow: hidden;
+    overflow: visible;
 }
 
 /* CARTA */
@@ -228,13 +228,13 @@ body {
 
   .lily {
     position: fixed;
-    width: 140px;
+    top: auto;
     left: 50%;
-    bottom: 80px;   /* AJUSTA AQUÍ */
+    bottom: 80px;
+    width: 140px;
     transform: translateX(-50%);
     opacity: 1;
     z-index: 4500;
-    transition: opacity .4s ease;
   }
 
   #envelope.expanded .lily {
@@ -243,13 +243,13 @@ body {
 
 }
 
-
 @media (max-width: 768px) {
   body {
     align-items: flex-start;
     padding-top: 120px;
   }
 }
+
 
 
 
