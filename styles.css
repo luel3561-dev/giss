@@ -5,14 +5,13 @@
 }
 
 body {
-    min-height: 100svh; /* 👈 CLAVE para móvil */
+    min-height: 100svh;
     background: #e91e63;
     display: flex;
     justify-content: center;
     align-items: center;
     font-family: 'Playfair Display', serif;
 }
-
 
 /* Nombre */
 .envelope-name {
@@ -37,7 +36,7 @@ body {
 .envelope-inner {
     position: absolute;
     inset: 0;
-    overflow: hidden;
+    overflow: visible;
 }
 
 /* CARTA */
@@ -55,13 +54,15 @@ body {
     justify-content: center;
     align-items: center;
     text-align: center;
-    transition: transform 1.4s ease, height 1s ease;
+    transition: transform 1.6s ease-in-out, height 1s ease;
     box-shadow: 0 15px 40px rgba(0,0,0,.15);
     z-index: 2;
+    opacity: 0;
 }
 
 #envelope.open .letter {
     transform: translateX(-50%) translateY(-80px);
+    opacity: 1;
 }
 
 #envelope.expanded .letter {
@@ -117,12 +118,17 @@ body {
     background: #ff8fab;
     clip-path: polygon(0 0, 50% 50%, 100% 0);
     transform-origin: top;
-    transition: transform 1.8s cubic-bezier(.25,.8,.25,1);
+    transition: transform 1.8s ease-in-out;
     z-index: 3;
 }
 
 #envelope.open .flap {
     transform: rotateX(180deg);
+}
+
+/* Cierre más suave */
+#envelope:not(.open) .flap {
+    transition: transform 2.2s ease-in-out;
 }
 
 /* CUERPO */
@@ -157,7 +163,7 @@ body {
     background: #faa5bb;
 }
 
-/* LIRIO */
+/* LIRIO DESKTOP */
 .lily {
     position: fixed;
     top: 50%;
@@ -212,25 +218,31 @@ body {
     background: #9b2c50;
 }
 
+/* MÓVIL */
 @media (max-width: 768px) {
   .music-container {
     position: fixed;
-    top: auto;              /* ← ESTO ES LA CLAVE */
-    bottom: 20px;           /* ajusta aquí */
+    top: auto;
+    bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
   }
 }
 
+@media (max-width: 900px) {
 
-
-
-@media (max-width: 768px) {
   .lily {
-    width: 120px;      /* más pequeño */
+    position: absolute;
     left: 50%;
+    bottom: -70px;
+    width: 140px;
     transform: translateX(-50%);
-    bottom: 20px;
-    opacity: 0.9;
+    opacity: 1;
+    z-index: 5;
   }
+
+  #envelope.expanded .lily {
+    opacity: 0;
+  }
+
 }
