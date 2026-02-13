@@ -227,14 +227,13 @@ body {
 @media (max-width: 900px) {
 
   .lily {
-    position: fixed;
-    top: auto;
+    position: absolute;   /* 👈 CAMBIO IMPORTANTE */
     left: 50%;
-    bottom: 80px;
+    bottom: -70px;        /* separación debajo del sobre */
     width: 140px;
     transform: translateX(-50%);
     opacity: 1;
-    z-index: 4500;
+    z-index: 5;
   }
 
   #envelope.expanded .lily {
@@ -243,12 +242,7 @@ body {
 
 }
 
-@media (max-width: 768px) {
-  body {
-    align-items: flex-start;
-    padding-top: 120px;
-  }
-}
+
 
 
 
