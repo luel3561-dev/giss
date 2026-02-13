@@ -5,13 +5,12 @@
 }
 
 body {
-    min-height: 100svh;
+    min-height: 100vh;
     background: #e91e63;
     display: flex;
     justify-content: center;
     align-items: center;
     font-family: 'Playfair Display', serif;
-    overflow-x: hidden; /* evita desplazamientos raros */
 }
 
 /* SOBRE */
@@ -20,25 +19,38 @@ body {
     width: 300px;
     height: 200px;
     cursor: pointer;
-    perspective: 1000px;
-    background: #ff8fab;
 }
 
-/* IMPORTANTE */
+/* INTERIOR */
 .envelope-inner {
     position: absolute;
     inset: 0;
-    overflow: hidden; /* 🔥 clave */
+    overflow: hidden;
 }
 
-/* NOMBRE */
-.envelope-name {
+/* CUERPO */
+.envelope-body {
     position: absolute;
-    bottom: 15px;
-    left: 20px;
-    font-size: 1.2rem;
-    font-style: italic;
-    z-index: 5;
+    inset: 0;
+    background: #faa5bb;
+    z-index: 1;
+}
+
+/* TAPA (2D estable) */
+.flap {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100px;
+    background: #ff8fab;
+    clip-path: polygon(0 0, 50% 100%, 100% 0);
+    transform-origin: top;
+    transition: transform 0.8s ease;
+    z-index: 3;
+}
+
+#envelope.open .flap {
+    transform: rotate(180deg);
 }
 
 /* CARTA */
@@ -48,186 +60,76 @@ body {
     left: 50%;
     width: 260px;
     height: 160px;
-    transform: translateX(-50%) translateY(100%); /* 🔥 empieza escondida */
     background: linear-gradient(to bottom, #fffdf9, #fffaf0);
     border-radius: 4px;
-    padding: 40px 25px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    padding: 30px;
     text-align: center;
-    transition: transform 1.2s ease-in-out, height 1s ease;
-    box-shadow: 0 15px 40px rgba(0,0,0,.15);
+    transform: translate(-50%, 100%);
+    transition: transform 0.8s ease;
     z-index: 2;
-    opacity: 0;
 }
 
+/* CUANDO ABRE */
 #envelope.open .letter {
-    transform: translateX(-50%) translateY(-60px);
-    opacity: 1;
-}
-
-#envelope.expanded .letter {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    width: 300px;
-    height: 450px;
-    transform: translate(-50%, -50%);
-    border-radius: 8px;
-    z-index: 5000;
+    transform: translate(-50%, -40px);
 }
 
 /* MENSAJE */
 .message {
-    opacity: 0;
-    visibility: hidden;
     font-style: italic;
-}
-
-#envelope.open .message {
-    opacity: 1;
-    visibility: visible;
-}
-
-#envelope.expanded .message {
-    opacity: 0;
-    visibility: hidden;
-}
-
-/* TEXTO LARGO */
-.letter-text {
-    position: absolute;
-    inset: 0;
-    padding: 25px;
-    opacity: 0;
-    visibility: hidden;
-    overflow-y: auto;
-    text-align: left;
-    line-height: 1.6;
-}
-
-#envelope.expanded .letter-text {
-    opacity: 1;
-    visibility: visible;
-    transition: opacity .6s ease .3s;
-}
-
-/* TAPA */
-.flap {
-    position: absolute;
-    inset: 0;
-    background: #ff8fab;
-    clip-path: polygon(0 0, 50% 50%, 100% 0);
-    transform-origin: top center;
-    transition: transform 1.6s ease-in-out; /* 🔥 más natural */
-    z-index: 3;
-}
-
-#envelope.open .flap {
-    transform: rotateX(-180deg);
-}
-
-/* CUERPO */
-.envelope-body {
-    position: absolute;
-    inset: 0;
-    z-index: 3;
-}
-
-.left, .right {
-    position: absolute;
-    width: 50%;
-    height: 100%;
-    background: #faa5bb;
-}
-
-.left {
-    left: 0;
-    clip-path: polygon(0 0, 100% 50%, 0 100%);
-}
-
-.right {
-    right: 0;
-    clip-path: polygon(100% 0, 0 50%, 100% 100%);
-}
-
-.bottom {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 50%;
-    background: #faa5bb;
 }
 
 /* LIRIO DESKTOP */
 .lily {
-    position: absolute; /* 🔥 ya no fixed */
-    right: -220px;
+    position: absolute;
+    right: -200px;
     top: 50%;
-    width: 250px;
+    width: 220px;
     transform: translateY(-50%);
     opacity: 0;
-    transition: .8s ease;
-    z-index: 1;
+    transition: opacity 0.6s ease;
 }
 
-#envelope.expanded .lily {
+#envelope.open .lily {
     opacity: 1;
-}
-
-/* CORAZONES */
-.heart {
-    position: fixed;
-    animation: floatUp 3s ease forwards;
-    pointer-events: none;
-    z-index: 9999;
-}
-
-@keyframes floatUp {
-    to {
-        opacity: 0;
-        transform: translateY(-220px) scale(1.5);
-    }
 }
 
 /* BOTÓN */
 .music-container {
-    position: fixed; /* 🔥 siempre fijo */
+    position: fixed;
     bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
-    z-index: 6000;
 }
 
 #musicBtn {
     padding: 10px 18px;
     border-radius: 20px;
     border: none;
-    cursor: pointer;
     background: #7b1e3c;
-    color: #fff;
-    transition: .3s;
-}
-
-#musicBtn:hover {
-    background: #9b2c50;
+    color: white;
+    cursor: pointer;
 }
 
 /* MÓVIL */
 @media (max-width: 768px) {
 
-    body {
-        align-items: center; /* 🔥 quitamos flex-start */
+    #envelope {
+        width: 260px;
+        height: 180px;
+    }
+
+    .letter {
+        width: 220px;
+        height: 150px;
     }
 
     .lily {
-        position: absolute;
         left: 50%;
-        bottom: -65px;
+        right: auto;
+        bottom: -60px;
         top: auto;
-        width: 110px; /* 👈 aquí cambias tamaño */
+        width: 100px;
         transform: translateX(-50%);
-        opacity: 1;
     }
 }
