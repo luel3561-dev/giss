@@ -6,7 +6,7 @@
 
 body {
     min-height: 100svh; /* 👈 CLAVE para móvil */
-    background: #C2185B;
+    background: linear-gradient(135deg, #ff4f8b, #e91e63, #c2185b);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -234,6 +234,7 @@ body {
     opacity: 0.9;
   }
 }
+
 
 
 
