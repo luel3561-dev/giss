@@ -224,18 +224,22 @@ body {
   }
 }
 
-
-
-
 @media (max-width: 768px) {
+
   .lily {
-    width: 120px;      /* más pequeño */
+    position: fixed;
+    width: 120px;
     left: 50%;
+    bottom: 40px;   /* AQUÍ lo puedes bajar/subir */
     transform: translateX(-50%);
-    bottom: 20px;
-    opacity: 0.9;
-    top: auto;
-    bottom: XXpX;
-    transform: translateX(-50);
+    opacity: 1;     /* Visible siempre */
+    z-index: 4500;
+    transition: opacity .4s ease;
   }
+
+  /* En móvil se oculta SOLO cuando está expanded */
+  #envelope.expanded .lily {
+    opacity: 0;
+  }
+
 }
