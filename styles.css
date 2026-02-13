@@ -5,14 +5,13 @@
 }
 
 body {
-    min-height: 100svh; /* 👈 CLAVE para móvil */
+    min-height: 100svh;
     background: #e91e63;
     display: flex;
     justify-content: center;
     align-items: center;
     font-family: 'Playfair Display', serif;
 }
-
 
 /* Nombre */
 .envelope-name {
@@ -37,7 +36,7 @@ body {
 .envelope-inner {
     position: absolute;
     inset: 0;
-    overflow: visible;
+    overflow: hidden; /* 🔥 arreglado */
 }
 
 /* CARTA */
@@ -47,7 +46,7 @@ body {
     left: 50%;
     width: 260px;
     height: 160px;
-    transform: translateX(-50%) translateY(40%);
+    transform: translateX(-50%) translateY(100%); /* 🔥 arreglado */
     background: linear-gradient(to bottom, #fffdf9, #fffaf0);
     border-radius: 4px;
     padding: 40px 25px;
@@ -77,7 +76,7 @@ body {
     z-index: 5000;
 }
 
-/* MENSAJE CORTO */
+/* MENSAJE */
 .message {
     opacity: 0;
     visibility: hidden;
@@ -119,7 +118,7 @@ body {
     background: #ff8fab;
     clip-path: polygon(0 0, 50% 50%, 100% 0);
     transform-origin: top;
-    transition: transform 1.8s cubic-bezier(.25,.8,.25,1);
+    transition: transform 1.8s ease-in-out; /* 🔥 arreglado */
     z-index: 3;
 }
 
@@ -176,61 +175,14 @@ body {
     transform: translateY(-50%) scale(1);
 }
 
-/* 💖 CORAZONES */
-.heart {
-    position: fixed;
-    animation: floatUp 3s ease forwards;
-    pointer-events: none;
-    z-index: 9999;
-}
-
-@keyframes floatUp {
-    to {
-        opacity: 0;
-        transform: translateY(-220px) scale(1.5);
-    }
-}
-
-/* 🎵 BOTÓN MÚSICA */
-.music-container {
-    position: absolute;
-    top: calc(50% + 240px);
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 6000;
-}
-
-#musicBtn {
-    padding: 10px 18px;
-    border-radius: 20px;
-    border: none;
-    cursor: pointer;
-    background: #7b1e3c;
-    color: #fff;
-    transition: .3s;
-}
-
-#musicBtn:hover {
-    background: #9b2c50;
-}
-
-@media (max-width: 768px) {
-  .music-container {
-    position: fixed;
-    top: auto;              /* ← ESTO ES LA CLAVE */
-    bottom: 20px;           /* ajusta aquí */
-    left: 50%;
-    transform: translateX(-50%);
-  }
-}
-
+/* MÓVIL */
 @media (max-width: 900px) {
 
   .lily {
-    position: absolute;   /* 👈 CAMBIO IMPORTANTE */
+    position: absolute;
     left: 50%;
-    bottom: -70px;        /* separación debajo del sobre */
-    width: 140px;
+    bottom: -70px;
+    width: 110px; /* 🔥 un poco más pequeño */
     transform: translateX(-50%);
     opacity: 1;
     z-index: 5;
@@ -239,10 +191,4 @@ body {
   #envelope.expanded .lily {
     opacity: 0;
   }
-
 }
-
-
-
-
-
