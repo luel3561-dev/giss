@@ -228,18 +228,27 @@ body {
 
   .lily {
     position: fixed;
-    width: 120px;
+    width: 140px;
     left: 50%;
-    bottom: 40px;   /* AQUÍ lo puedes bajar/subir */
+    bottom: 80px;   /* AJUSTA AQUÍ */
     transform: translateX(-50%);
-    opacity: 1;     /* Visible siempre */
+    opacity: 1;
     z-index: 4500;
     transition: opacity .4s ease;
   }
 
-  /* En móvil se oculta SOLO cuando está expanded */
   #envelope.expanded .lily {
     opacity: 0;
   }
 
 }
+
+
+@media (max-width: 768px) {
+  body {
+    align-items: flex-start;
+    padding-top: 120px;
+  }
+}
+
+
