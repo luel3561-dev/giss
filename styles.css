@@ -37,7 +37,7 @@ body {
 .envelope-inner {
     position: absolute;
     inset: 0;
-    overflow: visible;
+    overflow: hidden;
 }
 
 /* CARTA */
@@ -58,12 +58,10 @@ body {
     transition: transform 1.4s ease, height 1s ease;
     box-shadow: 0 15px 40px rgba(0,0,0,.15);
     z-index: 2;
-    opacity: 0;
 }
 
 #envelope.open .letter {
     transform: translateX(-50%) translateY(-80px);
-    opacity: 1;
 }
 
 #envelope.expanded .letter {
@@ -224,31 +222,15 @@ body {
   }
 }
 
-@media (max-width: 900px) {
 
-  .lily {
-    position: fixed;
-    top: auto;
-    left: 50%;
-    bottom: 80px;
-    width: 140px;
-    transform: translateX(-50%);
-    opacity: 1;
-    z-index: 4500;
-  }
 
-  #envelope.expanded .lily {
-    opacity: 0;
-  }
-
-}
 
 @media (max-width: 768px) {
-  body {
-    align-items: flex-start;
-    padding-top: 120px;
+  .lily {
+    width: 120px;      /* más pequeño */
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 20px;
+    opacity: 0.9;
   }
 }
-
-
-
