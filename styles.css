@@ -235,7 +235,7 @@ body {
     position: absolute;
     left: 50%;
     bottom: -70px;
-    width: 120px;
+    width: 80px;
     transform: translateX(-50%);
     opacity: 1;
     z-index: 5;
@@ -246,4 +246,5 @@ body {
   }
 
 }
+
 
