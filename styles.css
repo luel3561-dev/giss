@@ -5,13 +5,14 @@
 }
 
 body {
-    min-height: 100svh;
+    min-height: 100svh; /* 👈 CLAVE para móvil */
     background: #e91e63;
     display: flex;
     justify-content: center;
     align-items: center;
     font-family: 'Playfair Display', serif;
 }
+
 
 /* Nombre */
 .envelope-name {
@@ -36,7 +37,7 @@ body {
 .envelope-inner {
     position: absolute;
     inset: 0;
-    overflow: hidden; /* 👈 evita que la carta sobresalga */
+    overflow: visible;
 }
 
 /* CARTA */
@@ -46,7 +47,7 @@ body {
     left: 50%;
     width: 260px;
     height: 160px;
-    transform: translateX(-50%) translateY(100%); /* 👈 completamente oculta */
+    transform: translateX(-50%) translateY(40%);
     background: linear-gradient(to bottom, #fffdf9, #fffaf0);
     border-radius: 4px;
     padding: 40px 25px;
@@ -54,13 +55,12 @@ body {
     justify-content: center;
     align-items: center;
     text-align: center;
-    transition: transform 1.6s ease-in-out, height 1s ease;
+    transition: transform 1.4s ease, height 1s ease;
     box-shadow: 0 15px 40px rgba(0,0,0,.15);
     z-index: 2;
     opacity: 0;
 }
 
-/* APERTURA DESKTOP */
 #envelope.open .letter {
     transform: translateX(-50%) translateY(-80px);
     opacity: 1;
@@ -77,7 +77,7 @@ body {
     z-index: 5000;
 }
 
-/* MENSAJE */
+/* MENSAJE CORTO */
 .message {
     opacity: 0;
     visibility: hidden;
@@ -119,9 +119,7 @@ body {
     background: #ff8fab;
     clip-path: polygon(0 0, 50% 50%, 100% 0);
     transform-origin: top;
-    transition: transform 1.8s ease-in-out;
-    backface-visibility: hidden;
-    transform-style: preserve-3d;
+    transition: transform 1.8s cubic-bezier(.25,.8,.25,1);
     z-index: 3;
 }
 
@@ -129,11 +127,7 @@ body {
     transform: rotateX(180deg);
 }
 
-#envelope:not(.open) .flap {
-    transition: transform 2.2s ease-in-out;
-}
-
-/* CUERPO SOBRE */
+/* CUERPO */
 .envelope-body {
     position: absolute;
     inset: 0;
@@ -165,23 +159,24 @@ body {
     background: #faa5bb;
 }
 
-/* LIRIO DESKTOP */
+/* LIRIO */
 .lily {
     position: fixed;
     top: 50%;
     left: calc(50% + 190px);
-    width: 280px; /* 👈 tamaño desktop */
-    transform: translateY(-50%);
+    width: 280px;
     opacity: 0;
+    transform: translateY(-50%) scale(.9);
     transition: .8s ease;
     z-index: 4999;
 }
 
 #envelope.expanded .lily {
     opacity: 1;
+    transform: translateY(-50%) scale(1);
 }
 
-/* CORAZONES */
+/* 💖 CORAZONES */
 .heart {
     position: fixed;
     animation: floatUp 3s ease forwards;
@@ -196,7 +191,7 @@ body {
     }
 }
 
-/* BOTÓN MÚSICA */
+/* 🎵 BOTÓN MÚSICA */
 .music-container {
     position: absolute;
     top: calc(50% + 240px);
@@ -219,47 +214,41 @@ body {
     background: #9b2c50;
 }
 
-/* ===================== */
-/*        MÓVIL          */
-/* ===================== */
+@media (max-width: 768px) {
+  .music-container {
+    position: fixed;
+    top: auto;              /* ← ESTO ES LA CLAVE */
+    bottom: 20px;           /* ajusta aquí */
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
 
 @media (max-width: 900px) {
 
-  /* Carta más pequeña */
-  .letter {
-    width: 230px;
-    height: 150px;
-  }
-
-  /* Apertura más natural */
-  #envelope.open .letter {
-    transform: translateX(-50%) translateY(-60px);
-  }
-
-  /* Lirio móvil */
   .lily {
-    position: absolute;
+    position: fixed;
+    top: auto;
     left: 50%;
-    bottom: -70px; /* 👈 mantiene misma posición visual */
-    width: 85px;   /* 👈 tamaño móvil */
+    bottom: 80px;
+    width: 140px;
     transform: translateX(-50%);
     opacity: 1;
-    z-index: 5;
+    z-index: 4500;
   }
 
   #envelope.expanded .lily {
     opacity: 0;
   }
 
-  /* Animación más estable en móvil */
-  .flap {
-    transition: transform 1.4s ease-in-out;
-  }
+}
 
-  .music-container {
-    position: fixed;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
+@media (max-width: 768px) {
+  body {
+    align-items: flex-start;
+    padding-top: 120px;
   }
 }
+
+
+
