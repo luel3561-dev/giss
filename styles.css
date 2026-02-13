@@ -36,7 +36,7 @@ body {
 .envelope-inner {
     position: absolute;
     inset: 0;
-    overflow: hidden; /* 👈 evita que la carta sobresalga */
+    overflow: visible;
 }
 
 /* CARTA */
@@ -119,8 +119,6 @@ body {
     clip-path: polygon(0 0, 50% 50%, 100% 0);
     transform-origin: top;
     transition: transform 1.8s ease-in-out;
-    backface-visibility: hidden;
-    transform-style: preserve-3d;
     z-index: 3;
 }
 
@@ -172,13 +170,14 @@ body {
     left: calc(50% + 190px);
     width: 280px;
     opacity: 0;
-    transform: translateY(-50%);
+    transform: translateY(-50%) scale(.9);
     transition: .8s ease;
     z-index: 4999;
 }
 
 #envelope.expanded .lily {
     opacity: 1;
+    transform: translateY(-50%) scale(1);
 }
 
 /* 💖 CORAZONES */
@@ -219,28 +218,24 @@ body {
     background: #9b2c50;
 }
 
-/* ============================= */
-/*            MÓVIL              */
-/* ============================= */
+/* MÓVIL */
+@media (max-width: 768px) {
+  .music-container {
+    position: fixed;
+    top: auto;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
 
 @media (max-width: 900px) {
 
-  /* Carta más pequeña y movimiento más natural */
-  .letter {
-    width: 230px;
-    height: 150px;
-  }
-
-  #envelope.open .letter {
-    transform: translateX(-50%) translateY(-60px);
-  }
-
-  /* Lirio centrado abajo */
   .lily {
     position: absolute;
     left: 50%;
-    bottom: -60px;
-    width: 65px; /* 👈 más pequeño real */
+    bottom: -70px;
+    width: 80px;
     transform: translateX(-50%);
     opacity: 1;
     z-index: 5;
@@ -250,15 +245,5 @@ body {
     opacity: 0;
   }
 
-  /* Animación más estable en móvil */
-  .flap {
-    transition: transform 1.4s ease-in-out;
-  }
-
-  .music-container {
-    position: fixed;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-  }
 }
+
