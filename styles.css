@@ -227,7 +227,7 @@ body {
 
 @media (max-width: 768px) {
   .lily {
-    width: 78px;      /* más pequeño */
+    width: 120px;      /* más pequeño */
     left: 50%;
     transform: translateX(-50%);
     bottom: 20px;
@@ -235,6 +235,10 @@ body {
   }
 }
 
+.motivo {
+  color: #e91e63;
+  font-weight: 700;
+}
 
 
 
